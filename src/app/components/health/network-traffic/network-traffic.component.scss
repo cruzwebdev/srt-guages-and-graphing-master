@@ -1,0 +1,27 @@
+@import '../../../../styles/variables-and-helpers';
+
+.NetworkTraffic {
+
+  &__canvas {
+    width: 100%;
+    height: 180px;
+  }
+
+  &__legend {
+    margin: 0 0 $spacing;
+  }
+
+  &__line {
+    margin: 0 0 5px;
+    width: 50px;
+    border-top: 2px solid var(--color-orange);
+
+    &--dashed {
+      border-top-style: dashed;
+    }
+  }
+
+  &__label {
+    text-align: center;
+  }
+}

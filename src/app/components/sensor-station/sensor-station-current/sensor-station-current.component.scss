@@ -1,0 +1,31 @@
+@import '../../../../styles/variables-and-helpers';
+
+:host {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+.SensorStationCurrent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: $spacing;
+
+  border: 1px solid var(--color-text);
+
+  &__row {
+    display: flex;
+    margin: $spacing / -2;
+  }
+
+  &__item {
+    margin: $spacing $spacing / 2;
+  }
+
+  &__subtitle {
+    margin: 0 0 $spacing;
+    font-size: .9em;
+    text-align: center;
+  }
+}

@@ -1,0 +1,71 @@
+@import '../../../../styles/variables-and-helpers';
+
+.NetworkMap {
+  padding: $spacing / 2;
+  border: 1px solid var(--color-text);
+
+  &__title {
+    margin: 0 0 $spacing;
+
+    font-size: 1em;
+
+    text-transform: uppercase;
+  }
+
+  .edge {
+    stroke-width: 4;
+  }
+}
+
+.NetworkNode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  height: 100%;
+
+  border: .25em solid var(--color-text);
+
+  border-radius: 50%;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  font-weight: bold;
+  font-size: 1.4em;
+
+  background: var(--color-black);
+
+  &__title {
+    &--small {
+      font-size: .7em;
+    }
+  }
+
+  &__number {
+    font-size: 3em;
+    line-height: 1;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  &--active {
+    border-color: var(--color-orange);
+  }
+
+  &--children {
+    cursor: pointer;
+  }
+
+  &--root {
+    font-size: 2.2em;
+  }
+}

@@ -1,0 +1,30 @@
+.HealthPage {
+  padding: 20px;
+
+  &__inner {
+    display: flex;
+
+    margin: -10px;
+  }
+
+  &__col {
+    flex: 1 1 auto;
+    width: 0;
+
+    padding: 10px;
+
+    &:first-child,
+    &:last-child {
+      flex-grow: 0;
+      width: 500px;
+    }
+  }
+
+  &__card {
+    display: block;
+
+    &:not(:last-child) {
+      margin: 0 0 20px;
+    }
+  }
+}

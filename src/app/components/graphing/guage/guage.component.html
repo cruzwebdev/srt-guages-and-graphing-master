@@ -1,0 +1,4 @@
+<div class="Guage">
+    <canvas class="Guage__canvas" #canvas></canvas>
+    <div class="Guage__value">{{ (value$ | async) || '-' }}<span *ngIf="unit" class="Guage__unit" [ngClass]="{ 'Guage__unit--shrink': unit !== '°' }">{{ unit }}</span></div>
+</div>

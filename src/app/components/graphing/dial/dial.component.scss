@@ -1,0 +1,184 @@
+$dial-compass-points-offset: .3em;
+
+.Dial {
+  position: relative;
+  font-size: 150px;
+  width: 1em;
+  height: 1em;
+
+  border-radius: 50%;
+
+  border: .025em solid var(--color-text);
+
+  &__value {
+    position: absolute;
+
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .125em;
+
+    background: var(--color-background-grey);
+    border-radius: .14em;
+    box-shadow: 0 0 1em var(--color-background-grey);
+
+    white-space: nowrap;
+  }
+
+  &__compass {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: .9em;
+    height: .9em;
+
+    border-radius: 50%;
+    border: .015em dotted var(--color-text);
+  }
+
+  &__direction {
+    position: absolute;
+    font-size: .1em;
+    font-weight: bold;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      background: var(--color-text);
+    }
+
+    &--n,
+    &--s {
+      left: 50%;
+      transform: translateX(-50%);
+
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+        width: .2em;
+        height: .4em;
+      }
+    }
+
+    &--e,
+    &--w {
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:before {
+        top: 50%;
+        transform: translateY(-50%);
+        width: .4em;
+        height: .2em;
+      }
+    }
+
+    &--n {
+      top: $dial-compass-points-offset;
+
+      &:before {
+        top: $dial-compass-points-offset * -2;
+      }
+    }
+
+    &--s {
+      bottom: $dial-compass-points-offset;
+
+      &:before {
+        bottom: $dial-compass-points-offset * -2;
+      }
+    }
+
+    &--e {
+      right: $dial-compass-points-offset;
+
+      &:before {
+        right: $dial-compass-points-offset * -2;
+      }
+    }
+
+    &--w {
+      left: $dial-compass-points-offset;
+
+      &:before {
+        left:  $dial-compass-points-offset * -2;
+      }
+    }
+  }
+
+  &__arrow,
+  &__history {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__arrow {
+    width: .14em;
+    height: .9em;
+
+    background: {
+      image: url(/assets/dial-arrow.svg);
+      width: .14em;
+      height: 1em;
+      position: center center;
+      repeat: no-repeat;
+    }
+
+    transition: transform 1s ease;
+  }
+
+  &__history {
+    width: 1em;
+    height: 1em;
+  }
+
+  &__history-path {
+    fill: transparent;
+    transition: fill 1s ease;
+  }
+
+  &__half-marker,
+  &__marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background: var(--color-text);
+    }
+  }
+
+  &__marker {
+    &:before {
+      width: .015em;
+      height: .05em;
+    }
+  }
+
+  &__half-marker {
+    &:before {
+      width: .005em;
+      height: .045em;
+    }
+  }
+
+  &__marker-value {
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    font-size: .075em;
+  }
+}

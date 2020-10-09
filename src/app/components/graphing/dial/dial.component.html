@@ -1,0 +1,33 @@
+<div class="Dial">
+  <!-- Dial -->
+  <div *ngIf="type === 'dial' && markers && halfMarkers" class="Dial__markers">
+    <div *ngFor="let halfMarker of halfMarkers"  class="Dial__half-marker" [ngStyle]="halfMarker"></div>
+    <div *ngFor="let marker of markers" class="Dial__marker" [ngStyle]="marker.containerStyles">
+      <span class="Dial__marker-value" [ngStyle]="marker.valueStyles">{{ marker.value }}</span>
+    </div>
+  </div>
+
+  <!-- Compass -->
+  <ng-container *ngIf="type === 'compass'">
+    <div class="Dial__compass">
+      <div class="Dial__direction Dial__direction--n">N</div>
+      <div class="Dial__direction Dial__direction--e">E</div>
+      <div class="Dial__direction Dial__direction--s">S</div>
+      <div class="Dial__direction Dial__direction--w">W</div>
+    </div>
+    <div *ngIf="previousValues && previousValues[0]" class="Dial__history" [ngStyle]="previousValues[0].styles">
+      <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path class="Dial__history-path" [attr.d]="previousValues[0].path" [ngStyle]="{ fill: previousValues[0].fill }"></path>
+      </svg>
+    </div>
+    <div *ngIf="previousValues && previousValues[0]" class="Dial__history" [ngStyle]="previousValues[1].styles">
+      <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path class="Dial__history-path" [attr.d]="previousValues[1].path" [ngStyle]="{ fill: previousValues[1].fill }"></path>
+      </svg>
+    </div>
+  </ng-container>
+
+  <!-- Common -->
+  <div class="Dial__arrow" [ngStyle]="dialStyles"></div>
+  <div class="Dial__value">{{ displayValue }}{{ unit }}</div>
+</div>

@@ -1,0 +1,13 @@
+@import '../../../../styles/variables-and-helpers';
+
+.HDDSpace {
+  &__label {
+    margin: 0 0 $spacing / 2;
+    font-size: 1em;
+    text-align: center;
+  }
+
+  &__guage {
+    font-size: 140px;
+  }
+}

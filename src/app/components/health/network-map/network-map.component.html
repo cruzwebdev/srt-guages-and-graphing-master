@@ -1,0 +1,35 @@
+<div class="NetworkMap">
+  <h2 class="NetworkMap__title">Network</h2>
+  <ngx-graph
+    [nodes]="visibleNodes"
+    [links]="visibleLinks"
+    [view]="[841, 400]"
+    [curve]="curve"
+    [update$]="update$"
+    [panToNode$]="panToNode$"
+    [autoCenter]="true"
+    [autoZoom]="true"
+    [draggingEnabled]="false"
+    [layoutSettings]="layoutSettings"
+  >
+    <ng-template #nodeTemplate let-node>
+      <svg:g xmlns="http://www.w3.org/2000/xhtml">
+        <svg:foreignObject [attr.width]="node.data.root ? 250 : 150" [attr.height]="node.data.root ? 250 : 150">
+          <xhtml:div
+            class="NetworkNode"
+            [ngClass]="{ 'NetworkNode--active': node.data.active, 'NetworkNode--children': !node.data.root && node.data.children, 'NetworkNode--root': node.data.root }"
+            (click)="toggleChildren(node.id)"
+          >
+            <svg class="NetworkNode__icon" *ngIf="node.data.icon">
+              <use [attr.href]="'#' + node.data.icon"></use>
+            </svg>
+
+            <div class="NetworkNode__title" [ngClass]="{ 'NetworkNode__title--small' : node.data.title.length > 10 }" *ngIf="!node.data.icon">{{ node.data.title }}</div>
+
+            <div class="NetworkNode__number" *ngIf="!node.data.icon && node.data.number">{{ node.data.number }}</div>
+          </xhtml:div>
+        </svg:foreignObject>
+      </svg:g>
+    </ng-template>
+  </ngx-graph>
+</div>

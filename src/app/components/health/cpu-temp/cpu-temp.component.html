@@ -1,0 +1,8 @@
+<div class="Card">
+  <h2 class="Card__title">CPU Temp</h2>
+
+  <div class="Card__flex">
+    <app-guage class="Card__flex-item CPUTemp__guage" [value$]="currentTemp$" unit="°"></app-guage>
+    <app-area-chart class="Card__flex-item Card__flex-item--grow CPUTemp__graph" [value$]="CPUTemp$" aspectRatio="2"></app-area-chart>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="Card">
+    <h2 class="Card__title">CPU Usage</h2>
+
+    <div class="Card__flex">
+      <app-guage class="Card__flex-item CPUUsage__guage" [value$]="currentUsage$" unit="%"></app-guage>
+      <app-area-chart class="Card__flex-item Card__flex-item--grow CPUUsage__graph" [value$]="CPUUsage$" aspectRatio="2"></app-area-chart>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+<div class="Card">
+  <h2 class="Card__title">HDD Space</h2>
+
+  <div class="Card__flex Card__flex--space-around">
+    <div class="Card__flex-item">
+        <h3 class="HDDSpace__label">OS</h3>
+        <app-guage class="HDDSpace__guage" [value$]="os$" unit="%"></app-guage>
+    </div>
+    <div class="Card__flex-item">
+        <h3 class="HDDSpace__label">Storage</h3>
+        <app-guage class="HDDSpace__guage" [value$]="storage$" unit="%"></app-guage>
+    </div>
+  </div>
+</div>

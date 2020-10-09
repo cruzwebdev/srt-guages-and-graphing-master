@@ -1,0 +1,53 @@
+<div class="SensorStationCurrent">
+
+  <div class="SensorStationCurrent__row">
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Wind Direction</h4>
+      <app-dial type="compass" [value]="(data$ | async).windDirection"></app-dial>
+    </div>
+
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Wind Speed</h4>
+      <app-dial type="dial" [value]="(data$ | async).windSpeed" [suggestedMax]="20" unit=" mph"></app-dial>
+    </div>
+
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Wind Gust</h4>
+      <app-dial type="dial" [value]="(data$ | async).windGust" [suggestedMax]="20" unit=" mph"></app-dial>
+    </div>
+  </div>
+
+  <div class="SensorStationCurrent__row">
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Wave Direction</h4>
+      <app-dial type="compass" [value]="(data$ | async).waveDirection"></app-dial>
+    </div>
+
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Wave Height</h4>
+      <app-dial type="dial" [value]="(data$ | async).waveHeight" [suggestedMax]="9" unit="m"></app-dial>
+    </div>
+
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Wave Period</h4>
+      <app-dial type="dial" [value]="(data$ | async).wavePeriod" [suggestedMax]="16" unit=" secs"></app-dial>
+    </div>
+  </div>
+
+  <div class="SensorStationCurrent__row">
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Pressure</h4>
+      <app-dial type="dial" [value]="(data$ | async).pressure" [suggestedMin]="880" [suggestedMax]="1080" [numberOfMarkers]="6" [halfMarkersPerMarker]="3" unit=" hPa"></app-dial>
+    </div>
+
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Current Direction</h4>
+      <app-dial type="compass" [value]="(data$ | async).currentDirection"></app-dial>
+    </div>
+
+    <div class="SensorStationCurrent__item">
+      <h4 class="SensorStationCurrent__subtitle">Current Speed</h4>
+      <app-dial type="dial" [value]="(data$ | async).currentSpeed" [suggestedMax]="12" unit=" kts"></app-dial>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="SensorStationHistory">
+  <div class="SensorStationHistory__inner">
+    <header class="SensorStationHistory__header">
+      <div class="SensorStationHistory__form">
+        <div class="SensorStationHistory__dates">
+          <p class="SensorStationHistory__date">
+            <label for="start">Start</label>
+            <input id="start" type="date" [formControl]="startDate" [max]="maxDate | date: 'yyyy-MM-dd'" [min]="minDate | date: 'yyyy-MM-dd'">
+          </p>
+          <p class="SensorStationHistory__date">
+            <label for="end">End</label>
+            <input id="end" type="date" [formControl]="endDate" [max]="maxDate | date: 'yyyy-MM-dd'" [min]="minDate | date: 'yyyy-MM-dd'">
+          </p>
+        </div>
+        <app-validation-errors
+          class="SensorStationHistory__errors"
+          *ngIf="form.dirty"
+          [errors]="[startDate.errors, endDate.errors]"
+          [messages]="setValidationMessages({
+            'startDateTooSoon': 'Start date must not be before {minDate}',
+            'startDateTooLate': 'Start date must not be after today',
+            'endDateTooSoon': 'End date must not be before {minDate}',
+            'endDateTooLate': 'End date must not be after today',
+            'startAfterEnd': 'Start date must not be after end date',
+            'notWithinRange': 'Start date must not be more than 10 days before end date',
+            'datesEqual': 'Start date must not be the same as end date'
+          })"
+        ></app-validation-errors>
+      </div>
+
+    </header>
+    <div class="SensorStationHistory__grid">
+      <div class="SensorStationHistory__item">
+        <h3 class="SensorStationHistory__subtitle">Wind (kts)</h3>
+        <app-line-chart class="SensorStationHistory__chart" [values$]="windValues$" [xAxisType]="'time'" [colors]="[Colors.Orange, Colors.Text]"></app-line-chart>
+      </div>
+      <div class="SensorStationHistory__item">
+        <h3 class="SensorStationHistory__subtitle">Wave Height (m)</h3>
+        <app-line-chart class="SensorStationHistory__chart" [values$]="waveHeightValues$" [xAxisType]="'time'"></app-line-chart>
+      </div>
+      <div class="SensorStationHistory__item">
+        <h3 class="SensorStationHistory__subtitle">Current Speed (kts)</h3>
+        <app-line-chart class="SensorStationHistory__chart" [values$]="currentSpeedValues$" [xAxisType]="'time'"></app-line-chart>
+      </div>
+      <div class="SensorStationHistory__item">
+        <h3 class="SensorStationHistory__subtitle">Pressure (hPa)</h3>
+        <app-line-chart class="SensorStationHistory__chart" [values$]="pressureValues$" [xAxisType]="'time'" [suggestedMin]="850" [suggestedMax]="1080"></app-line-chart>
+      </div>
+    </div>
+  </div>
+</div>

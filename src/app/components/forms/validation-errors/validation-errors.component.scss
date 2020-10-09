@@ -1,0 +1,38 @@
+.ValidationErrors {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: .5em 0 0;
+  padding: .5em;
+  list-style: none;
+  font-size: .9em;
+
+  background: var(--color-red);
+  border-radius: .25em;
+
+  white-space: nowrap;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: .5em;
+    height: .5em;
+
+    background: inherit;
+  }
+
+  &:empty {
+    display: none;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin: 0 0 .5em;
+    }
+  }
+}

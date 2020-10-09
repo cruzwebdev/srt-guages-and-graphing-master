@@ -1,0 +1,42 @@
+<div class="SensorStation">
+  <div class="SensorStation__inner">
+    <header class="SensorStation__header">
+        <h2 class="SensorStation__title">WS003</h2>
+    </header>
+    <div class="SensorStation__columns">
+      <div class="SensorStation__column SensorStation__column--details">
+        <h3 class="SensorStation__subtitle">Details</h3>
+
+        <p>
+          <label for="latitude">Latitude</label>
+          <input id="latitude" readonly value="52° 03.16' N">
+        </p>
+
+        <p>
+          <label for="longitude">Longitude</label>
+          <input id="longitude" readonly value="000° 01.35' W">
+        </p>
+
+        <p>
+          <label for="altitude">Altitude (m)</label>
+          <input id="altitude" readonly value="80">
+        </p>
+
+        <p>
+          <label for="last-updated">Last Updated</label>
+          <input id="last-updated" readonly value="{{ (currentData$ | async)?.date | date: 'dd-MMM-yyyy HH:mm:ss' }}">
+        </p>
+      </div>
+      <div class="SensorStation__column SensorStation__column--current">
+        <h3 class="SensorStation__subtitle">Current</h3>
+
+        <app-sensor-station-current [data$]="currentData$"></app-sensor-station-current>
+      </div>
+      <div class="SensorStation__column SensorStation__column--history">
+        <h3 class="SensorStation__subtitle">History</h3>
+
+        <app-sensor-station-history></app-sensor-station-history>
+      </div>
+    </div>
+  </div>
+</div>
